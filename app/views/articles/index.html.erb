@@ -9,7 +9,14 @@
                 </div>
                 <div class = "article-body">
                     <%= truncate(article.descriptoin, length: 100) %>
+                    <div class="article-meta-details">
+                        <small>Created by: <%= article.user.username if article.user %>, 
+                        <%= time_ago_in_words(article.created_at) %> ago,
+                        last updated: <%= time_ago_in_words(article.updated_at) %>
+                        </small>
+                    </div>
                 </div>
+                
                 <div class="article-action">
                         <%= link_to "Edit article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
                         <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-xs btn-danger" %>
@@ -22,5 +29,5 @@
         
     </div>
             
-    <% end %>
+<% end %>
     
