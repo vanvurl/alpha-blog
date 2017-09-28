@@ -16,6 +16,9 @@
     <h4 class="center"><strong>Description</strong></h4>
     <hr>
     <%= simple_format(@article.descriptoin) %>
+    <% if @article.categories.any? %>
+        <P>Categories: <%= render @article.categories %></P>
+    <% end %>
     <div class="article-action">
               
         <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %> 
